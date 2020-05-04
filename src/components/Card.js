@@ -27,7 +27,7 @@ const CardStyled = styled.a`
 
   h1 {
     margin: 0;
-    color: cornflowerblue;
+    color: red;
   }
 
   @media (max-width: 768px) {
