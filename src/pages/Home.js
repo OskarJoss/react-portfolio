@@ -4,6 +4,7 @@ import Card from "../components/Card";
 import styled from "styled-components";
 
 const HomeStyled = styled.div`
+  background-color: #e5ee6987;
   min-height: 100vh;
   width: 100vw;
   display: flex;

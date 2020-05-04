@@ -1,8 +1,19 @@
 import React from "react";
 import client from "../contentful";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import { Redirect } from "@reach/router";
-import "../App.css";
+import styled from "styled-components";
+import RichTextContainer from "../components/RichTextContainer";
+
+const SingleProjectStyled = styled.div`
+  width: 100vw;
+  min-height: 100vh;
+  background-color: antiquewhite;
+  background-color: #e5ee6987;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: center;
+`;
 
 const SingleProject = (props) => {
   const [project, setProject] = React.useState(null);
@@ -27,11 +38,14 @@ const SingleProject = (props) => {
   }
 
   return (
-    <div className="SingleProject">
+    <SingleProjectStyled>
       <h1>{project && project.title}</h1>
-      <img src={project && project.image.fields.file.url} alt={""} height></img>
-      {documentToReactComponents(project && project.text)}
-    </div>
+      <img
+        src={`${project && project.image.fields.file.url}?w=600`}
+        alt={""}
+      ></img>
+      <RichTextContainer text={project && project.text} />
+    </SingleProjectStyled>
   );
 };
 
