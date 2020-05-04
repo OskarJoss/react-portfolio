@@ -13,26 +13,22 @@ const SingleProject = (props) => {
         "fields.slug": props.slug,
       })
       .then((entries) => {
-        //if (entries.items.length !== 0) {
-        setProject(entries.items[0].fields);
-        // } else {
-        //   setProject([]);
-        // }
+        if (entries.items.length !== 0) {
+          setProject(entries.items[0].fields);
+        } else {
+          setProject([]);
+        }
       });
   }, [props.slug]);
 
-  // if (project && project.length === 0) {
-  //   return <Redirect from="" to="/404" noThrow />;
-  // }
+  if (project && project.length === 0) {
+    return <Redirect from="" to="/404" noThrow />;
+  }
 
   return (
     <div className="SingleProject">
       <h1>{project && project.title}</h1>
-      <img
-        src={`${project && project.image.fields.file.url}?w=300`}
-        alt={""}
-        height
-      ></img>
+      <img src={project && project.image.fields.file.url} alt={""} height></img>
       {documentToReactComponents(project && project.text)}
     </div>
   );
