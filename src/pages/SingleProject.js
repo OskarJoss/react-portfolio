@@ -13,17 +13,17 @@ const SingleProject = (props) => {
         "fields.slug": props.slug,
       })
       .then((entries) => {
-        if (entries.items.length !== 0) {
-          setProject(entries.items[0].fields);
-        } else {
-          setProject([]);
-        }
+        //if (entries.items.length !== 0) {
+        setProject(entries.items[0].fields);
+        // } else {
+        //   setProject([]);
+        // }
       });
   }, [props.slug]);
 
-  if (project && project.length === 0) {
-    return <Redirect from="" to="/404" noThrow />;
-  }
+  // if (project && project.length === 0) {
+  //   return <Redirect from="" to="/404" noThrow />;
+  // }
 
   return (
     <div className="SingleProject">
