@@ -4,26 +4,26 @@ import { documentToReactComponents } from "@contentful/rich-text-react-renderer"
 import { Redirect } from "@reach/router";
 
 const SingleProject = (props) => {
-  const [project, setProject] = React.useState(null);
+  // const [project, setProject] = React.useState(null);
 
-  React.useEffect(() => {
-    client
-      .getEntries({
-        content_type: "project",
-        "fields.slug": props.slug,
-      })
-      .then((entries) => {
-        if (entries.items.length !== 0) {
-          setProject(entries.items[0].fields);
-        } else {
-          setProject([]);
-        }
-      });
-  }, [props.slug]);
+  // React.useEffect(() => {
+  //   client
+  //     .getEntries({
+  //       content_type: "project",
+  //       "fields.slug": props.slug,
+  //     })
+  //     .then((entries) => {
+  //       if (entries.items.length !== 0) {
+  //         setProject(entries.items[0].fields);
+  //       } else {
+  //         setProject([]);
+  //       }
+  //     });
+  // }, [props.slug]);
 
-  if (project && project.length === 0) {
-    return <Redirect from="" to="/404" noThrow />;
-  }
+  // if (project && project.length === 0) {
+  //   return <Redirect from="" to="/404" noThrow />;
+  // }
 
   return (
     <div className="SingleProject">
