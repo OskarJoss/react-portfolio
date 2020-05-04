@@ -27,9 +27,9 @@ const SingleProject = (props) => {
 
   return (
     <div className="SingleProject">
-      <h1>{project && project.title}</h1>
+      {/* <h1>{project && project.title}</h1>
       <img src={project && project.image.fields.file.url} alt={""} height></img>
-      {documentToReactComponents(project && project.text)}
+      {documentToReactComponents(project && project.text)} */}
     </div>
   );
 };
